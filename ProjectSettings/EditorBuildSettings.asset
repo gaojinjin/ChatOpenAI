@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/ChatGPT.unity
+    guid: f44a373da60f248ef9965d58f84be166
   m_configObjects: {}

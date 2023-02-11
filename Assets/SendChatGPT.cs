@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-
+using TMPro;
 
 public class SendChatGPT : MonoBehaviour
 {
@@ -16,14 +16,14 @@ public class SendChatGPT : MonoBehaviour
     /// <summary>
     /// API KEY
     /// </summary>
-    const string API_KEY = "USER_API_KEY";
+    const string API_KEY = "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";
     /// <summary>
     /// 入力欄
     /// </summary>
     [SerializeField]
-    private InputField Input;
+    private TMP_InputField Input;
     [SerializeField]
-    private Text Output;
+    private TMP_Text Output;
 
     [SerializeField]
     private Button ExecButton;
