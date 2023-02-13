@@ -10,15 +10,16 @@ using TMPro;
 public class SendChatGPT : MonoBehaviour
 {
     /// <summary>
-    /// APIエンドポイント
+    /// API端点
     /// </summary>
     const string API_END_POINT = "https://api.openai.com/v1/completions";
+    //const string API_END_POINT = "https://api.openai.com/v1/completions";
     /// <summary>
     /// API KEY
     /// </summary>
-    const string API_KEY = "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";
+    const string API_KEY = "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";
     /// <summary>
-    /// 入力欄
+    /// 输入框
     /// </summary>
     [SerializeField]
     private TMP_InputField Input;
@@ -29,21 +30,22 @@ public class SendChatGPT : MonoBehaviour
     private Button ExecButton;
     [SerializeField]
     private Button QuitButton;
-
+    public Transform childPar;
     private void Start()
     {
-        // API実行ボタン
+        // API执行按钮
         ExecButton.onClick.AddListener(async () =>
         {
-            //入力取得
+            //获取输入内容
             string prompt = Input.text;
             if (!string.IsNullOrEmpty(prompt))
             {
-                //レスポンス取得
+                //获取回调内容
                 var response = await GetAPIResponse(prompt);
-                //レスポンスからテキスト取得
+                //从回复文本内容获取文本内容
                 string outputText = response.Choices.FirstOrDefault().Text;
-                Output.text = outputText.TrimStart('\n');
+                Transform textItem = Instantiate(Output.transform, childPar);
+                textItem.GetComponent<TMP_Text>().text = outputText.TrimStart('\n');
                 Debug.Log(outputText);
             }
 
@@ -56,7 +58,7 @@ public class SendChatGPT : MonoBehaviour
     }
 
     /// <summary>
-    /// APIからレスポンス取得
+    /// API相应获取内容
     /// </summary>
     /// <param name="prompt"></param>
     /// <returns></returns>
@@ -67,18 +69,18 @@ public class SendChatGPT : MonoBehaviour
         APIRequestData requestData = new APIRequestData()
         {
             Prompt = prompt,
-            MaxTokens = 300 //レスポンスのテキストが途切れる場合、こちらを変更する  如果响应文本中断，改变这里
+            MaxTokens = 300 //如果响应文本中断，改变这里
         };
 
         string requestJson = JsonConvert.SerializeObject(requestData, Formatting.Indented);
         Debug.Log(requestJson);
 
-        // POSTするデータ
+        // POST发送数据
         byte[] data = System.Text.Encoding.UTF8.GetBytes(requestJson);
 
 
         string jsonString = null;
-        // POSTリクエストを送信
+        // POST发送请求
         using (UnityWebRequest request = UnityWebRequest.Post(API_END_POINT, "POST"))
         {
             request.uploadHandler = new UploadHandlerRaw(data);
@@ -90,12 +92,12 @@ public class SendChatGPT : MonoBehaviour
             switch (request.result)
             {
                 case UnityWebRequest.Result.InProgress:
-                    Debug.Log("リクエスト中");
+                    Debug.Log("请求中");
                     break;
                 case UnityWebRequest.Result.Success:
-                    Debug.Log("リクエスト成功");
+                    Debug.Log("请求成功");
                     jsonString = request.downloadHandler.text;
-                    // レスポンスデータを表示
+                    // 显式相应数据
                     Debug.Log(jsonString);
                     break;
                 default:
@@ -104,7 +106,7 @@ public class SendChatGPT : MonoBehaviour
             }
         }
 
-        // デシリアライズ
+        // 序列化数据
         APIResponseData jsonObject = JsonConvert.DeserializeObject<APIResponseData>(jsonString);
 
         return jsonObject;

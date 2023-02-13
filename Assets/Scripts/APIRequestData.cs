@@ -1,7 +1,7 @@
 using Newtonsoft.Json;
 
 /// <summary>
-/// APIリクエスト
+/// API地址
 /// 
 /// https://beta.openai.com/docs/api-reference/authentication
 /// </summary>
@@ -20,7 +20,7 @@ public class APIRequestData
 }
 
 /// <summary>
-/// APIレスポンス
+/// API地址
 /// 
 /// https://beta.openai.com/docs/api-reference/authentication
 /// </summary>

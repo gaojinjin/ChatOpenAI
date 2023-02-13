@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/TestAds.unity
     guid: fb045abe3a8984be8a52c4151e558393
+  - enabled: 1
+    path: Assets/Scenes/ChatGPT.unity
+    guid: f44a373da60f248ef9965d58f84be166
   m_configObjects: {}
