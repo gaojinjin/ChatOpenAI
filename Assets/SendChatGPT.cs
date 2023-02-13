@@ -63,10 +63,11 @@ public class SendChatGPT : MonoBehaviour
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     public async UniTask<APIResponseData> GetAPIResponse(string prompt)
     {
-        APIRequestData requestData = new()
+
+        APIRequestData requestData = new APIRequestData()
         {
             Prompt = prompt,
-            MaxTokens = 300 //レスポンスのテキストが途切れる場合、こちらを変更する
+            MaxTokens = 300 //レスポンスのテキストが途切れる場合、こちらを変更する  如果响应文本中断，改变这里
         };
 
         string requestJson = JsonConvert.SerializeObject(requestData, Formatting.Indented);
