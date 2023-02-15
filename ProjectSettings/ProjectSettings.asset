@@ -714,7 +714,8 @@ PlayerSettings:
     Build: 0
     Collab: 0
     Game Performance: 0
-    Purchasing: 0
+    Legacy Analytics: 1
+    Purchasing: 1
     UDP: 0
     Unity Ads: 1
   luminIcon:
@@ -731,10 +732,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 47b5b1e7-b3bc-456e-b7a0-f4ccaf0fad0d
+  cloudProjectId: 50268163-316b-4005-9c62-928725015103
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ChatOpenAI (1)
+  projectName: ChatOpenAI
   organizationId: gaojinjing
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
