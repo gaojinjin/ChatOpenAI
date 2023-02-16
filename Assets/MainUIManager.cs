@@ -10,6 +10,9 @@ public class MainUIManager : MonoSingleton<MainUIManager>
 
     void Start()
     {
+        
+
+
         for (int i = 0; i < buts.Length; i++)
         {
             int tempInt = i;
@@ -18,9 +21,10 @@ public class MainUIManager : MonoSingleton<MainUIManager>
                 {
                     gos[j].SetActive(j==tempInt);
                 }
-                gameObject.SetActive(tempInt != 0);
             });
         }
+        
+        
     }
 
     

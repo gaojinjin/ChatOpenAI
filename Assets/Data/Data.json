@@ -1,0 +1,16 @@
+{
+    "user": {
+        "name": "高锦锦",
+        "coin": 10
+    },
+    "shop": {
+        "shop": [
+            {
+                "name": "sss",
+                "description": "sss",
+                "icoName": "sss",
+                "expend": 10
+            }
+        ]
+    }
+}

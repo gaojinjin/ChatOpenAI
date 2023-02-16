@@ -11,7 +11,7 @@ public class ChatGPTManager : MonoSingleton<ChatGPTManager>
 {
 
     public Button createChatBut, chatHistoryBut;
-    public GameObject chatWindow, createChatGo, chatHistroyGo;
+    public GameObject chatButtonGroup, createChatGo, chatWindowGo;
 
     /// <summary>
     /// API端点
@@ -42,11 +42,18 @@ public class ChatGPTManager : MonoSingleton<ChatGPTManager>
     
     private void Start()
     {
+        //查看历史记录
+        chatHistoryBut.onClick.AddListener(()=> {
+            //关闭当前窗口   显式聊天对话框
+
+                
+        });
+
         //注册按钮事件
         createChatBut.onClick.AddListener(()=> {
             //隐藏部分组件  显式创建聊天空
-            chatWindow.SetActive(false);
-            createChatGo.SetActive(false);
+            chatButtonGroup.SetActive(false);
+            createChatGo.SetActive(true);
         });
 
 
@@ -70,8 +77,9 @@ public class ChatGPTManager : MonoSingleton<ChatGPTManager>
         // 关闭当前页面显示
         BackButton.onClick.AddListener(() =>
         {
-            chatHistroyGo.SetActive(false);
+            chatWindowGo.SetActive(false);
             MainUIManager.Instance.gameObject.SetActive(true);
+            chatButtonGroup.SetActive(true);
         });
     }
 

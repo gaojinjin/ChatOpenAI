@@ -11,15 +11,16 @@ public class CreateChatClass : MonoBehaviour
 {
     
     public TMP_InputField className;
-    public Button createBut, cancelBut;
+    public Button sureBut, cancelBut;
     public GameObject createChatWindow,sendChatWindow;
     void Start()
     {
         
-        createBut.onClick.AddListener(()=> {
+        sureBut.onClick.AddListener(()=> {
             //打开对话框  关闭当前窗口
             gameObject.SetActive(false);
             sendChatWindow.SetActive(true);
+            MainUIManager.Instance.gameObject.SetActive(false);
         });
         cancelBut.onClick.AddListener(() => {
             //打开对话框  关闭当前窗口
