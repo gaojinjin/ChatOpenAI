@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3650235767685371473}
   - component: {fileID: 3650235767685371472}
   - component: {fileID: 3650235767685371487}
+  - component: {fileID: 8234819070037103791}
   m_Layer: 5
   m_Name: ChatDialogBoxItem
   m_TagString: Untagged
@@ -150,6 +151,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &8234819070037103791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3650235767685371485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15a72c81e8214ca48fb3ece9f0bf928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 8754892219977351420}
+  contentText: {fileID: 3650235767685371472}
 --- !u!1 &9153342444782989603
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +177,7 @@ GameObject:
   - component: {fileID: 7871766685972284469}
   - component: {fileID: 8754892219977351420}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

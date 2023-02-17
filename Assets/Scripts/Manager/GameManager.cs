@@ -8,17 +8,41 @@ public class GameManager : MonoSingleton<GameManager>
     public Data data = new Data();
     private string filePath;
     public TextAsset file;
-
+    public string Name {
+        get {
+            return data.user.name;
+        }
+        set {
+            data.user.name = value;
+            Save();
+        }
+    }
+    public int Coin
+    {
+        get
+        {
+            return data.user.coin;
+        }
+        set
+        {
+            data.user.coin = value;
+            Save();
+        }
+    }
+    
     private void Start()
     {
+        //关闭息屏效果
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         string fileData = string.Empty;
+        filePath = Application.persistentDataPath + "Data.kiwi";
         if (!File.Exists(filePath))
         {
             fileData = file.text;
         }
         else
         {
-            filePath = Application.persistentDataPath + "Data.kiwi";
+            
             FileStream fs = new FileStream(filePath,FileMode.Open);
             StreamReader sr = new StreamReader(fs);
             fileData = sr.ReadToEnd();
@@ -32,7 +56,7 @@ public class GameManager : MonoSingleton<GameManager>
     /// 存储文件到沙盒
     /// </summary>
     public void Save() {
-        FileStream fs = new FileStream(Application.persistentDataPath + "Data.kiwi", FileMode.Open);
+        FileStream fs = new FileStream(Application.persistentDataPath + "Data.kiwi", FileMode.OpenOrCreate);
         StreamWriter sr = new StreamWriter(fs);
         sr.Write(JsonUtility.ToJson(data));
         sr.Close();
@@ -43,7 +67,7 @@ public class GameManager : MonoSingleton<GameManager>
     /// </summary>
     private void OnDestroy()
     {
-        Save();
+        //Save();
     }
 
 }
@@ -65,4 +89,9 @@ public class Shops {
 public class Shop {
     public string name, description, icoName;
     public int expend;
+}
+public enum SendType {
+    None,
+    User,
+    AI
 }
