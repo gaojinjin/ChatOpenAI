@@ -5738,7 +5738,7 @@ MonoBehaviour:
   chatItem: {fileID: 8234819070037103791, guid: 6d169707818e94134b728f3c60d0a27d, type: 3}
   ExecButton: {fileID: 298604817}
   BackButton: {fileID: 873663586}
-  dailogScroll: {fileID: 0}
+  dailogScroll: {fileID: 2532383}
   childPar: {fileID: 595747776}
 --- !u!4 &1516149085
 Transform:

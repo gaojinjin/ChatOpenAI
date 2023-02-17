@@ -21,7 +21,7 @@ public class ChatGPTManager : MonoSingleton<ChatGPTManager>
     /// <summary>
     /// API KEY
     /// </summary>
-    const string API_KEY = "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";
+    const string API_KEY = "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";
     /// <summary>
     /// 输入框
     /// </summary>
@@ -79,7 +79,12 @@ public class ChatGPTManager : MonoSingleton<ChatGPTManager>
                 ChatItem aiChatItem = Instantiate(chatItem, childPar);
                 aiChatItem.Init(SendType.AI, outputText.TrimStart('\n'));
                 ExecButton.interactable = true;
-                dailogScroll.verticalScrollbar.value = 0;
+
+                Canvas.ForceUpdateCanvases();
+                dailogScroll.content.GetComponent<VerticalLayoutGroup>().CalculateLayoutInputVertical();
+                dailogScroll.content.GetComponent<ContentSizeFitter>().SetLayoutVertical();
+                dailogScroll.verticalNormalizedPosition = 0;
+
                 Debug.Log(outputText);
             }
 
